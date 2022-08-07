@@ -1,0 +1,20 @@
+{
+    "name": "quiz",
+    "version": "1.0.0",
+    "description": "A quiz REST API system built using TDD, DDD, Clean Architecture and Domain Driven Architecture",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "workspaces": [
+        "src/@core",
+        "src/rest-api"
+    ],
+    "keywords": [],
+    "author": "Gabriel Pedersoli Lopes",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/uuid": "^8.3.4",
+        "prettier": "2.7.1"
+    }
+}
