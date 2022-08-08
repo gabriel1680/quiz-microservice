@@ -12,6 +12,7 @@ describe("Entity unit tests (Entity - Base)", () => {
     it("should be able to validate equality", () => {
         const entity = new StubEntity({ prop: "hello" });
 
+        expect(entity).toHaveProperty("id");
         expect(entity).toHaveProperty("createdAt");
         expect(entity).toHaveProperty("updatedAt");
     });
