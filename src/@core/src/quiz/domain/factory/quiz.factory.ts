@@ -16,7 +16,7 @@ export class QuizFactory {
     }
 }
 
-type QuizProps = {
+export type QuizProps = {
     id?: string;
     title: string;
     questions: QuestionProps[];
