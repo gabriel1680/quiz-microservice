@@ -1,5 +1,5 @@
 import { idFixture } from "src/@kernel/domain/test/unique-entity-id.fixture";
-import { Answer } from "src/domain/value-object/answer.value-object";
+import { Answer } from "src/quiz/domain/value-object/answer.value-object";
 import { EntityValidationError, Question } from "../question.entity";
 import { Quiz, QuizProperties } from "../quiz.entity";
 
