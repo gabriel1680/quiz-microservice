@@ -1,6 +1,9 @@
-import { AggregateRoot } from "src/@kernel/domain/entity/aggregate-root.interface";
-import { Entity, EntityTimestamp } from "src/@kernel/domain/entity/base.entity";
-import { UniqueEntityId } from "src/@kernel/domain/value-object/unique-entity-id.value-object";
+import {
+    Entity,
+    AggregateRoot,
+    EntityTimestamp,
+    UniqueEntityId,
+} from "src/@kernel/domain";
 import { EntityValidationError, Question } from "./question.entity";
 
 export class Quiz extends Entity<QuizProperties> implements AggregateRoot {
