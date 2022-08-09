@@ -71,4 +71,35 @@ describe("Quiz unit tests (Entity)", () => {
             }).toThrowError(EntityValidationError);
         }
     });
+    it("should be able to update title", () => {
+        const quiz = new Quiz(validData);
+        const spyOnValidate = jest.spyOn(quiz, "validate");
+        const spyOnUpdate = jest.spyOn(quiz, "update");
+        const updatedState = { title: "new title" };
+
+        quiz.updateValues(updatedState);
+
+        expect(quiz.title).toBe(updatedState.title);
+        expect(spyOnValidate).toHaveBeenCalledTimes(1);
+        expect(spyOnUpdate).toHaveBeenCalledTimes(1);
+    });
+    it("should be able to add question", () => {
+        const quiz = new Quiz(validData);
+        const spyOnValidate = jest.spyOn(quiz, "validate");
+        const spyOnUpdate = jest.spyOn(quiz, "update");
+        const newQuestion = new Question({
+            title: "some new question title",
+            answers: [
+                Answer.create({ id: "a", text: "yes" }),
+                Answer.create({ id: "b", text: "no" }),
+            ],
+            correctAnswer: "b",
+        });
+
+        quiz.addQuestion(newQuestion);
+
+        expect(quiz.questions).toHaveLength(3);
+        expect(spyOnValidate).toHaveBeenCalledTimes(1);
+        expect(spyOnUpdate).toHaveBeenCalledTimes(1);
+    });
 });

@@ -32,11 +32,29 @@ export class Quiz extends Entity<QuizProperties> implements AggregateRoot {
                 "To create a quiz is necessary at least 2 questions",
             );
     }
+    updateValues(props: Pick<QuizProperties, "title">): void {
+        this.title = props.title;
+
+        this.validate();
+        this.update();
+    }
+    addQuestion(question: Question): void {
+        this.props.questions.push(question);
+
+        this.validate();
+        this.update();
+    }
     get title(): string {
         return this.props.title;
     }
+    private set title(v: string) {
+        this.props.title = v;
+    }
     get questions(): Question[] {
         return this.props.questions;
+    }
+    private set questions(v: Question[]) {
+        this.props.questions = v;
     }
 }
 
