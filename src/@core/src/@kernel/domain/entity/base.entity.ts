@@ -1,6 +1,6 @@
 import { UniqueEntityId } from "../value-object/unique-entity-id.value-object";
 
-export abstract class Entity<T extends EntityTimestamp> {
+export abstract class Entity<T extends EntityTimestamp = any> {
     public createdAt: Date;
     public updatedAt: Date;
 
