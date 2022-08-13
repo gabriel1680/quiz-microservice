@@ -27,10 +27,7 @@ describe("CreateQuizUseCase unit tests (UseCase)", () => {
 
             await sut.execute(input);
 
-            expect(repository.create).toHaveBeenNthCalledWith(
-                1,
-                QuizFactory.create(input),
-            );
+            expect(repository.create).toHaveBeenNthCalledWith(1, expect.any(Quiz));
         });
     });
     describe("unhappy path", () => {
