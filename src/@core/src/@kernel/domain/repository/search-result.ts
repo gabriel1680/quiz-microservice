@@ -1,15 +1,5 @@
 import { Entity } from "../entity";
 
-type SearchResultProps<E extends Entity, F> = {
-    items: E[];
-    total: number;
-    currentPage: number;
-    perPage: number;
-    sort: string | null;
-    sortDir: string | null;
-    filter: F | null;
-};
-
 export class SearchResult<E extends Entity = Entity, F = string> {
     readonly items: E[];
     readonly total: number;
@@ -44,3 +34,13 @@ export class SearchResult<E extends Entity = Entity, F = string> {
         };
     }
 }
+
+type SearchResultProps<E extends Entity, F> = {
+    items: E[];
+    total: number;
+    currentPage: number;
+    perPage: number;
+    sort: string | null;
+    sortDir: string | null;
+    filter: F | null;
+};
