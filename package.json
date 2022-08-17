@@ -14,7 +14,6 @@
     "author": "Gabriel Pedersoli Lopes",
     "license": "ISC",
     "devDependencies": {
-        "@types/uuid": "^8.3.4",
         "prettier": "2.7.1"
     }
 }
