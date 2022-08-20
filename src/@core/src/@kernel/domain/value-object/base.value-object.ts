@@ -15,4 +15,8 @@ export abstract class ValueObject<T> {
 
         return true;
     }
+
+    toString() {
+        return `${this.value}`;
+    }
 }

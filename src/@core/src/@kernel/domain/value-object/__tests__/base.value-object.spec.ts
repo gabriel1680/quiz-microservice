@@ -29,4 +29,17 @@ describe("ValueObject unit tests (Value Object - Base)", () => {
             expect(voAsObjectValue.equals(voAsObjectValue3)).toBeFalsy();
         }
     });
+    it("should be able to return the vo value as string", () => {
+        const arranges = [
+            { value: "some string", expected: "some string" },
+            { value: 10_000, expected: "10000" },
+            { value: { prop1: "something" }, expected: "[object Object]" },
+        ];
+
+        for (const arrange of arranges) {
+            const vo = new StubVO(arrange.value);
+            expect(`${vo}`).toBe(arrange.expected);
+            expect(vo.toString()).toBe(arrange.expected);
+        }
+    });
 });
