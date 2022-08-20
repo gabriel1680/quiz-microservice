@@ -1,4 +1,4 @@
-import { SortDirection, UniqueEntityId } from "src/@kernel/domain";
+import { EntityNotFoundError, SortDirection, UniqueEntityId } from "src/@kernel/domain";
 import { Quiz, QuizRepository } from "src/quiz/domain";
 import { SearchQuizParams } from "src/quiz/domain/repository/quiz.search-params";
 import { QuizSearchResult } from "src/quiz/domain/repository/quiz.search-result";
@@ -10,8 +10,9 @@ export class InMemoryQuizRepository implements QuizRepository {
         this.quizzes.push(entity);
     }
     async get(id: string | UniqueEntityId): Promise<Quiz> {
-        const quizEntity = this.quizzes.find(quiz => quiz.id.value === `${id}`);
-        if (!quizEntity) throw new Error();
+        const idString = `${id}`;
+        const quizEntity = this.quizzes.find(quiz => quiz.id.value === idString);
+        if (!quizEntity) throw new EntityNotFoundError(idString);
         return quizEntity;
     }
     sortableFields: string[] = ["createdAt", "updatedAt", "title"];
