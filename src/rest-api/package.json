@@ -1,9 +1,8 @@
 {
-    "name": "rest-api",
+    "name": "quiz-rest-api",
     "version": "0.0.1",
     "description": "",
     "author": "Gabriel Pedersoli Lopes",
-    "private": true,
     "license": "UNLICENSED",
     "scripts": {
         "prebuild": "rimraf dist",
